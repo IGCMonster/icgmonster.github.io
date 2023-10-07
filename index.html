@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meta Physical - A Meta Physical Companion App</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+	<meta name="description" content="A Meta Physical Web App for help with tracking ghost evidence and information.">
+	<meta name="keywords" content="Meta Physical, Meta PhysicalHelpeor, Companion App, Web App,">
+	<meta name="author" content="IGCMonster">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+</head>
+<body class="orb" onload="loadSettings()">
+	<div class="wrapper">
+		<div id="desc">
+			<h1>Meta Physical</h1>
+			<p>A web app for tracking evidence during contracts in the game Meta Physical. This is a supplemental tool for the journal on hunts.</p>
+		</div>
+		<!-- toggle_buttons -->
+		<div class="toggle_buttons">
+			<a href="Tools.html" id="toggle_tools">View Tools</a>
+			<a href="javascript:void(0);" id="toggle_instructions">Toggle Instructions</a>
+			<a href="javascript:void(0);" id="reset">Reset</a>
+			<a href="javascript:void(0);" id="undoEvidence">Undo</a>
+		</div>
+		<!-- toggle_buttons -->
+		<div class="instructions">
+			<h2>Instructions:</h2>
+			<ol>
+				<li>Type in the name of your ghost in the Ghost Name text box.</li>
+				<li>Click on Defense, Evidence, or Behaviors as you find it. As you select them the ghosts below narrow down to possible choices.</li>
+				<li>Once your contract is finished, click the "Reset" button near the top to start over!</li>
+			</ol>
+		</div>
+		<form>
+			<div id="ghost_info"><!-- ghost_info -->
+				<h2>Ghost Information:</h2>
+				<p class="instructions">Type in your ghost name.</p>
+				<div>
+					<div id="ghost_name_holder">
+						<input type="text" class="ghost_name" placeholder="Ghost Name" />
+					</div>
+				</div>
+			</div><!-- ghost_info -->
+			<div id="role_descriptions"><!-- role_descriptions -->
+				<h2>Roles:</h2>
+				<p class="instructions">You be able to choose a role after level 50 in game. Each role has a special abilities that are not available
+					to any other player! Press the F key in game to use your ability. When doing so, you 
+					should not be holding any objects in your hands. Remember that you can only 
+					use your ability a limit number of times depending on the roles you choose.
+				</p>
+					<div class="row">
+						<div id="role_list">
+							<div>
+								<input type="checkbox" id="doctor" />
+								<label for="doctor">The Doctor</label>
+								<img src="Role_The_Doctor.png" alt="Doctor" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="hunter" />
+								<label for="hunter">The Hunter</label>
+								<img src="Role_The_Hunter.png" alt="Hunter" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="priest" />
+								<label for="priest">The Priest</label>
+								<img src="Role_The_Priest.png" alt="Priest" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="medium" />
+								<label for="medium">The Medium</label>
+								<img src="Role_The_Medium.png" alt="Medium" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="prepper" />
+								<label for="prepper">The Prepper</label>
+								<img src="Role_The_Prepper.png" alt="Prepper" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="psychologist" />
+								<label for="psychologist">The Psychologist</label>
+								<img src="Role_The_Psychologist.png" alt="Psychologist" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="witch" />
+								<label for="witch">The Witch</label>
+								<img src="Role_The_Witch.png" alt="witch" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="investigator" />
+								<label for="investigator">The Investigator</label>
+								<img src="Role_The_Investigator.png" alt="investigator" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="druid" />
+								<label for="druid">The Druid</label>
+								<img src="Role_The_Druide.png" alt="druid" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="half_demon" />
+								<label for="half_demon">The Half Demon</label>
+								<img src="Role_The_Half_Demon.png" alt="half_demon" style="width: 100px;height: 100px;">
+							</div>
+						</div><!-- Role_list -->
+						<div id="role_hints" class="hidden">
+							<div id="doctor_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Heal or Revive One Teammate Per Mission</td><td>Bandage Box </td><td>Nothing</td></tr>
+									<tr><td>Cannot Heal Self</td><td>Heals Player Who Picks It Up</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Doctor -->
+							<div id="hunter_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Has Four Shots in The Shotgun Instead of Two</td><td>Munitionskiste </td><td>More Hp</td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Hunter -->
+							<div id="priest_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>	
+									<tr><td>Can Exorcise Without Book</td><td>Cross</td><td>Nothing</td></tr>
+									<tr><td></td><td>(Ends Hunt Immediately)</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Priest-->
+							<div id="medium_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+									<tr><td>Can Locate the Creature even if it not hunting</td><td>Crystal</td><td>Usually Senses When Creature is About To Hunt</td></tr>
+									<tr><td>(Can Be Used Three Times)</td><td>(Ends Hunt Immediately)</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Medium -->
+							<div id="prepper_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+									<tr><td>Can Place More Salt And Chalk</td><td>Box With Salt</td><td>More HP</td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Prepper -->
+							<div id="psychologist_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Place More Salt And Chalk</td><td>Calming Tablets</td><td>Does Not Get Scared</td></tr>
+									<tr><td>(Can Be Used 3 Times)</td><td></td><td>Ghostbox Reacts Independantly of the room</tr>
+								</table><br />
+								</div>
+							</div><!-- The Psychologist -->
+							<div id="witch_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Protection Spell: Own Player</td><td>Incense Sticks</td><td>Nothing</td></tr>
+									<tr><td>or Teammates can withstand</td><td>(Starts Hunting Immediately)</td><td></tr>
+									<tr><td>another blow.</td><td></td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Witch -->
+							<div id="investigator_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Receives a Reference</td><td>Flashlight Upgrade:</td><td>Fingerprints Never</td></tr>
+									<tr><td>To A Proof (1x Usable)</td><td>Use You Box To </td><td>Disappear</tr>
+									<tr><td></td><td>Upgrade You Flashlight</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Investigator -->
+							<div id="druid_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Paint Symbols on </td><td>Puppet: Directs</td><td>Nothing</td></tr>
+									<tr><td>The Ground That Stops</td><td>The Creature to Itself</td><td></tr>
+									<tr><td>Any Creature (1x usable)</td><td>During The Hunt</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Druid -->
+							<div id="half_demon_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Kidnap A Creature </td><td>Relic From Hell:</td><td>Nothing</td></tr>
+									<tr><td>When It Makes A Kidnapping</td><td>Draws The Creature To</td><td></tr>
+									<tr><td>Attempt (1x usable)</td><td>Itself (Outside Of Hunt)</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Half Demon -->
+							</div><!-- Role_hints -->
+						</div>
+			</div><!-- role_descriptions -->
+			<div id="evidence"><!-- Defense checkboxes -->
+				<h2>Confirmed Defense:</h2>
+				<p class="instructions">Track found Defense here. 
+					Slide left to confirmed defense 
+					and right to eliminated defense.</p>
+
+				<div id="evidence_list">
+					<ul>
+						<li>
+							<div class="evidenceToggle">
+								<label for="salt">Creature can walk on salt</label>
+								<input type="range" name="salt" id="salt" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="pentagram">Can be captured in pentagram</label>
+								<input type="range" name="pentagram" id="pentagram" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="pentagrams_seen">Will avoid pentagrams if seen</label>
+								<input type="range" name="pentagrams_seen" id="pentagrams_seen" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="shotgun">Can be scared with shotgun</label>
+								<input type="range" name="shotgun" id="shotgun" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="holy_water">Can be scared with holy water</label>
+								<input type="range" name="holy_water" id="holy_water" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="katana">Can be scared by katana</label>
+								<input type="range" name="katana" id="katana" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="knife">Can be scared with knife</label>
+								<input type="range" name="knife" id="knife" min="0" max="2" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- Defense checkboxes -->			
+			<div id="evidence"><!-- Evidence checkboxes -->
+				<h2>Confirmed Evidence:</h2>
+				<p class="instructions">Track found Evidence here. 
+					Slide left to confirmed evidence 
+					and right to eliminated evidence.</p>
+				<div id="evidence_list">
+					<ul>
+						<li>
+							<div class="evidenceToggle">
+								<label for="emf">EMF</label>
+								<input type="range" name="emf" id="emf" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="emf_5">EMF Level 5</label>
+								<input type="range" name="emf_5" id="emf_5" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="cold_spots">Cold Spots</label>
+								<input type="range" name="cold_spots" id="cold_spots" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="freezing">Minus Degrees</label>
+								<input type="range" name="freezing" id="freezing" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="motion">Motion Detector</label>
+								<input type="range" name="motion" id="motion" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="ghost_box">Ghost Box</label>
+								<input type="range" name="ghost_box" id="ghost_box" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="fingers">Fingerprints</label>
+								<input type="range" name="fingers" id="fingers" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="ghost_orbs">Orbs</label>
+								<input type="range" name="ghost_orbs" id="ghost_orbs" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="ouija_board">Oui<em>J</em>a Board</label>
+								<input type="range" name="ouija_board" id="ouija_board" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="ghost_doll">Ghost Doll</label>
+								<input type="range" name="ghost_doll" id="ghost_doll" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="crystal_ball">Crystal Ball</label>
+								<input type="range" name="crystal_ball" id="crystal_ball" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="statue_of_mary">Statue Of Mary</label>
+								<input type="range" name="statue_of_mary" id="statue_of_mary" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="candle">Candle</label>
+								<input type="range" name="candle" id="candle" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="h2s_meter">H<em>2</em>S Meter</label>
+								<input type="range" name="h2s_meter" id="h2s_meter" min="0" max="2" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- Evidence checkboxes -->
+			<div id="evidence"><!-- Behavior checkboxes -->
+				<h2>Confirmed Behaviors:</h2>
+				<p class="instructions">Track found behaviors here. 
+					Slide left to confirmed behaviors 
+					and right to eliminated behaviors.</p>
+
+				<div id="evidence_list">
+					<ul>
+						<li>
+							<div class="evidenceToggle">
+								<label for="light_switches">Light Switches</label>
+								<input type="range" name="light_switches" id="light_switches" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="brakes_lights">Brakes Lights</label>
+								<input type="range" name="brakes_lights" id="brakes_lights" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="screams">Screams</label>
+								<input type="range" name="screams" id="screams" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="flips_crosses">Flips Crosses</label>
+								<input type="range" name="flips_crosses" id="flips_crosses" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="fuse_box">Fuse Box</label>
+								<input type="range" name="fuse_box" id="fuse_box" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="writes_walls">Writes on Walls</label>
+								<input type="range" name="writes_walls" id="writes_walls" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="flashlight_flickers">Flashlight Flickers</label>
+								<input type="range" name="flashlight_flickers" id="flashlight_flickers" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="television">Cuts On Television</label>
+								<input type="range" name="television" id="television" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="knock">Knocks or Operate Phones</label>
+								<input type="range" name="knock" id="knock" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="contact">Contact</label>
+								<input type="range" name="contact" id="contact" min="0" max="2" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- Behavior checkboxes -->
+			<div id="evidence"><!-- Visible checkboxes -->
+				<h2>Confirmed Visible:</h2>
+				<p class="instructions">Track if you can see the ghost here. 
+					Slide left to confirmed visible
+					and right to eliminated visible.</p>
+
+				<div id="evidence_list">
+					<ul>
+						<li>
+							<div class="evidenceToggle">
+								<label for="visible">Is the Ghost Visible</label>
+								<input type="range" name="visable" id="visable" min="0" max="2" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- Behavior checkboxes -->
+		</form>
+		<div class="warning">
+			<div class="warning_text">Please select up to 3 pieces of evidence to narrow down the ghost. Click it again to eliminate it as a possibility.</div>
+		</div>
+		<h2>Possible Ghosts:</h2>
+		<div id="ghosts"><!-- ghosts -->
+			<div class="ghost"><!-- Ghost Spirit -->
+				<div>
+					<h3>Spirit</h3>
+					<div class="description">
+						<!-- Ghost Description -->
+						<p>A Spirit is the soul of a deceased person that remains on earth, often tied to a specific place due to unfinished business. Its manifestation can appear lifelike due to its power.</p>
+						<!-- Ghost Image -->
+						<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<!-- Actions to Destroy the Ghost -->
+						<ul class="ghost_actions">
+							<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Burning Human Remains</li>
+						</ul>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<!-- Evidence Associated with the Ghost -->
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="emf_5">EMF 5</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="ghost_orbs">Orb</li>
+						<li data-evidence="ouija_board">Ouija Board</li>
+						<h4>Defense</h4>
+						<!-- Defenses/Vulnerabilities of the Ghost -->
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<!-- Behaviors of the Ghost -->
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- Ghost Spirit -->
+			<div class="ghost"><!-- Ghost Djinn -->
+				<div>
+					<h3>Djinn</h3>
+					<div class="description">
+						<!-- Djinn Description -->
+						<p>Djinns are ancient creatures capable of abducting people into their dream worlds. 
+							They possess the ability to read minds and exploit the weaknesses of their victims. 
+							Death in the dream world also results in real-world death. The Djinn is vulnerable 
+							only in the dream world and can be damaged by a <font color="greenyellow">Knife</font> 
+							soaked in sheep's blood.</p>
+						<!-- Djinn Image -->
+						<img src="Ghost_djinn.png" alt="Ghost_djinn" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<!-- Action to Destroy the Djinn -->
+						<ul class="ghost_actions">
+							<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Knife in Dreamland</li>
+						</ul>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<!-- Evidence Associated with the Djinn -->
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="crystal_ball">Crystal Ball</li>
+						<h4>Defense</h4>
+						<!-- Defenses/Vulnerabilities of the Djinn -->
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagrams_seen">Avoids pentagrams if seen</li>
+						<h4>Behaviors</h4>
+						<!-- Behaviors of the Djinn -->
+						<li data-evidence="brakes_lights">Brakes Lights</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- Ghost Djinn -->			
+			<div class="ghost"><!-- ghost Nun -->
+				<div>
+					<h3>Nun</h3>
+					<div class="description">
+						<p>Is an extremely aggressive and 
+							powerful hybrid of a ghost and a 
+							demon. This is a medieval nun who 
+							was possessed by a demon and has 
+							been hunting and terrorizing people ever since. 
+							She is sensitive to Christian symbolism.</p>
+							<img src="Ghost_nun.png" alt="Ghost_nun" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism in Pentagram with a carpet.</font></li>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism in the Church after being teleported</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<li data-evidence="statue_of_mary">Statue Of Mary</li>
+						<li data-evidence="candle">Candle</li>
+						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Nun -->
+			<div class="ghost"><!-- ghost Demon -->
+				<div>
+					<h3>Demon</h3>
+					<div class="description">
+						<p>They are the remains of tortured souls. 
+							Spat out of hell and in the service of 
+							the devil, they take on human form 
+							and wield their powerful wrath. They 
+							have a weakness for <font color="greenyellow">salt</font> and can only 
+							be destroyed with an <font color="greenyellow">exorcism</font>.</p>
+							<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism in Pentagram with a carpet.</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="emf_5">EMF 5</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="brakes_lights">Brakes Lights</li>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Demon -->
+			<div class="ghost"><!-- ghost Nightmare -->
+				<div>
+					<h3>Nightmare</h3>
+					<div class="description">
+						<p>He is a small demonic creature that 
+						infests people and pets. It enters 
+						houses through keyholes and open 
+						doors or windows. Due to its demonic 
+						lineage, it can only be destroyed by 
+						exorcism. However, he is more 
+						primitive than, for example, a normal 
+						demon and does not notice the 
+						pentagrams. This means that you don't 
+						have to cover it up with a carpet.</p>
+						<img src="Ghost_nightmare.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism in Pentagram.</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="emf_5">EMF 5</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="light_switches">Light Switches</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Nightmare -->
+			<div class="ghost"><!-- ghost Poltergeist -->
+				<div>
+					<h3>Poltergeist</h3>
+					<div class="description">
+						<p>They are extremely aggresive ghosts that like to make themselves known. They harass their victims 
+							until they kill them. They are extremely aggressive and evil creatures that can be found in buildings 
+							where a demon had once manifested. Due to their connection with the demonic, they have a weakness for 
+							Christian symbols. Unlike normal spirits, they do not drain energy from their environment to manifest. 
+							Therefore, there is no decrease in temperature.</p>
+							<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+							
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Burning Human Remains (salt in to the Grave)</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="emf_5">EMF 5</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="light_switches">Light Switches</li>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Poltergeist -->
+			<div class="ghost"><!-- ghost Revenant -->
+				<div>
+					<h3>Revenant</h3>
+					<div class="description">
+						<p>Revenants are spirits that appear when their resting place is disturbed or when they want to 
+							take revenge on people for something that happened to them in their lives. They do not take into 
+							consideration who they have in front of them. They cannot be detected with an EMF device and are susceptible to salt.</p>
+							<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Burning Human Remains.</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>
+						<li data-evidence="crystal_ball">Crystal Ball</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Revenant -->
+			<div class="ghost"><!-- ghost Buruburu -->
+				<div>
+					<h3>Buruburu</h3>
+					<div class="description">
+						<p>These are Japanese ghosts that have died a horrible death. They are filled with vengeance and like to terrorize
+							 their victims before killing them. They are considered normal ghosts and can be killed like them by burning their human remains.</p>
+							 <img src="Ghost_yuki.png" alt="Ghost_yuki" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Burning Human Remains (salt into grave).</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>						
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Buruburu -->
+			<div class="ghost"><!-- ghost Shojo -->
+				<div>
+					<h3>Shojo</h3>
+					<div class="description">
+						<p>They are Japanese alcohol spirits. 
+							These are rather less aggressive, but 
+							are still dangerous because they do not 
+							show themselves to people at all. 
+							You can see these spirits only if you have consumed something <font color="red">alcoholic</font> before. 
+							You can only destroy them with a <font color="red">katana</font>.</p>
+						<img src="Ghost_yuki.png" alt="Ghost_yuki" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Katana</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="candle">Candle</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visable</h4>
+						<li data-evidence="not_visable">Can Not Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Shojo -->
+			<div class="ghost"><!-- ghost Yuki Onna -->
+				<div>
+					<h3>Yuki Onna</h3>
+					<div class="description">
+						<p>Japanese for snow woman. It is not recommended to stay too long in the place where there is a Yuki-Onna. 
+							They can only be destroyed with a <font color="red">Katana</font>.</p>
+							<img src="Ghost_yuki.png" alt="Ghost_yuki" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Katana</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="candle">Candle</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="brakes_lights">Brakes Lights</li>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Yuki Onna -->
+			<div class="ghost"><!-- ghost Banshee -->
+				<div>
+					<h3>Banashee</h3>
+					<div class="description">
+						<p>These are originally spirits that herald upcoming misfortune or death. In that case, however, it is an evil form of banshees.
+							They are a special kind of ghosts and can only be destroyed by exorcism.</p>
+							<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism in Pentagram.</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="statue_of_mary">Statue Of Mary</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="light_switches">Light Switches</li>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Banshee -->
+			<div class="ghost"><!-- ghost Domovoy -->
+				<div>
+					<h3>Domovoy</h3>
+					<div class="description">
+						<p>A domestic spirit originating from Eastern Europe. 
+							He likes to play tricks and can be harmless. Nevertheless, 
+							you should be on your guard, because the Domovoy is always concerned about the integrity of his house. 
+							He will defend it to the death if need be. <font color="red">This creature can be seen only if you get drunk before</font>.</p>
+							<img src="Ghost_nightmare.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Knife</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visable</h4>
+						<li data-evidence="not_visable">Can Not Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Domovoy -->
+			<div class="ghost"><!-- ghost Baba Yaga -->
+				<div>
+					<h3>Baba Yaga</h3>
+					<div class="description">
+						<p>A witch originating Eastern Europe. She is in an alliance with the devil and feeds primarily on children, 
+							while sacrificing their souls to the devil. She only allows herself to be exorcised in her forest and 
+							without a pentagram. Therefore, you have to let yourself be kidnapped by her.</p>
+						<p>Tip; For safety's sake, always take a holy water bottle with you to protect yourself from her in the forest.</p>
+						<img src="Ghost_baba_yaga.png" alt="Ghost_baba_yaga" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Exorcism (Only After Teleported to The Forest).</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<li data-evidence="statue_of_mary">Statue Of Mary</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="brakes_lights">Brakes Lights</li>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Baba Yaga -->
+			<div class="ghost"><!-- ghost Drake -->
+				<div>
+					<h3>Drake</h3>
+					<div class="description">
+						<p>The Drake is a goblin that has dragon-like characteristics. 
+							Its origin is in Central and Eastern Europe. He brings wealth or ruin to the house involved.</p>
+							<img src="Ghost_drake.png" alt="Ghost_drake" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Knife</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="crystal_ball">Crystal Ball</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="light_switches">Light Switches</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Drake -->
+			<div class="ghost"><!-- ghost Phantom -->
+				<div>
+					<h3>Phantom</h3>
+					<div class="description">
+						<p>Phantoms are usually discreet creatures. It is more difficult to find, 
+							but this does not mean that it is harmless. The phantom cannot be seen 
+							with the naked eye. Even when hunting, you can only see a shadow if you use <font color="greenyellow">UV light</font>.</p>
+							<img src="Ghost_phatom.png" alt="Ghost_phatom" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Burning Human Remains</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<h4>Defense</h4>
+						<p><font color="greenyellow">Can't walk on Salt</font></p>
+						<h4>Behaviors</h4>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<h4>Visable</h4>
+						<li data-evidence="not_visable">Can Not Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Phantom -->
+			<div class="ghost"><!-- ghost Shapeshifter -->
+				<div>
+					<h3>Shapeshifter</h3>
+					<div class="description">
+						<p>Is it your friend you see before you? Shapeshifters are a type of creature 
+							that can take on the form of a human. Some Shapeshifters seem to simply switch 
+							between different appearances, never settling on a particular permanent look. 
+							Shapeshifters can be defeated with <font color="greenyellow">silver bullets</font>, 
+							but only while they are inside a <font color="greenyellow">pentagram</font>. But beware. 
+							Once you shoot the Shapeshifter once, it will break free from the <font color="greenyellow">pentagram</font> 
+							and continue chasing you. So make sure you keep enough distance from him and have two 
+							shots to shoot him again and expel him. To defeat this creature it is necessary to repeat 
+							this process depending on how strong the creature is.</p>
+							<img src="Ghost_Shapeshifter.png" alt="Ghost_Shapeshifter" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Shotgun (Silver Ammunition) in Pentagram</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="light_switches">Light Switches</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Shapeshifter -->
+			<div class="ghost"><!-- ghost Arachne -->
+				<div>
+					<h3>Arachne</h3>
+					<div class="description">
+						<p>Arachne was a weaver in the Lydian city of Hypaipa who was widely praised for her special skills. 
+							She defeated Athena in a weaving contest, whereupon she became enraged and ripped up Arachne's work.
+							Arachne, now fully fearing the goddess's revenge, hanged herself.
+							But Athena did not let her die, but loosened the rope around her neck and sprayed a poison, 
+							after which the rope turned into a spider's web and Arachne into a weaving spider.
+							So Arachne and her descendants were doomed to weave for all eternity.
+							And she is still weaving today. So be on your guard against her spider webs, in which she can trap you. 
+							You can see her spider webs with the <font color="greenyellow">video camera</font>. She can be defeated 
+							in the temple with <font color="greenyellow">silver bullets</font>.</p>
+							<img src="Ghost_arachne.png" alt="Ghost_arachne" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Shotgun (Silver Ammunition) in The Temple</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="crystal_ball">Crystal Ball</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="brakes_lights">Brakes Lights</li>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Arachne -->
+			<div class="ghost"><!-- ghost Ghoul -->
+				<div>
+					<h3>Ghoul</h3>
+					<div class="description">
+						<p>The ghoul is a dangerous demon and belongs to the Djinn. 
+							It is a scavenger that traditionally feeds on the flesh and 
+							blood of the dead. But don't be fooled. These creatures also 
+							like to feed on living humans. Ghouls can only be killed with 
+							<font color="greenyellow">silver bullets</font>, but only as long as they are trapped in a <font color="greenyellow">pentagram</font>. 
+							But beware. The more people it kills, the more resistant to <font color="greenyellow">silver bullets</font> 
+							it becomes. Once you shoot the ghoul once, it will free itself from the 
+							<font color="greenyellow">pentagram</font> and continue chasing you. So make sure you keep enough distance 
+							to him and have two shots to shoot him again and drive him away. To defeat 
+							this creature it is necessary to repeat this process depending on how strong 
+							the creature is.</p>
+							<img src="Ghost_ghoul.png" alt="Ghost_ghoul" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Shotgun (Silver Ammunition) in Pentagram</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<li data-evidence="statue_of_mary">Statue Of Mary</li>
+						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Ghoul -->
+			<div class="ghost"><!-- ghost Siren -->
+				<div>
+					<h3>Siren</h3>
+					<div class="description">
+						<p>Since the dawn of seafaring, Sirens 
+							have used theis song to kill 
+							unsuspecting sailors.
+							Their song can stun people so that they cannot 
+							fight back when they are killed. 
+							Sometimes it helps to <font color="greenyellow">Drink Alcohol</font> to avoid being paralyzed by theis chants. 
+						 	To kill the Siren, you have to use brute force. A <font color="greenyellow">Bloody Knife</font> has proven to be 
+							useful for this.</p>
+							<img src="Ghost_Sirene.png" alt="Ghost_sirene" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Knife</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="ghost_box">Ghost Box</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="candle">Candle</li>
+						<h4>Defense</h4>
+						<p><font color="greenyellow">Can't walk on Salt</font></p>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Siren -->
+			<div class="ghost"><!-- ghost Grieving Gargoyle -->
+				<div>
+					<h3>Grieving Gargoyle</h3>
+					<div class="description">
+						<p>A Greieving Gargoyle is a statue that was
+							brought to life by a powerful witch. 
+							They attack anyone who gets in their 
+							way, but they can only move in the 
+							dark. You have to use this weakness
+							when eliminating them as well.
+							The Gargoyle is only vulnerable with 
+							the light on. However, you must first 
+							lure it into a <font color="greenyellow">Pentagram</font> in the dark, 
+							which is camouflaged with a <font color="greenyellow">Carpet</font>. 
+							Once the Gargoyle is trapped, you need 
+							to turn on the light and shoot it with <font color="greenyellow">Salt Ammo</font>. 
+							Note that the flashlight is not enough to freeze him.</p>
+						<img src="Ghost_gargoyle.png" alt="Ghost_gargoyle" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Shotgun (Salt Ammunition) in The Pentagram (With Carpet) With Lights on</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="emf">EMF</li>
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="freezing">Minus Degrees</li>
+						<li data-evidence="statue_of_mary">Statue Of Mary</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flips_crosses">Flip Crosses</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Grieving Gargoyle -->
+			<div class="ghost"><!-- ghost Wendigo -->
+				<div>
+					<h3>Wendigo</h3>
+					<div class="description">
+						<p>The Wendigo is an evil spirit that 
+							drives people to cannibalism.
+							This particular one kidnaps people into 
+							its forest to eat them. Once you are 
+							caught by a Wendigo, you can only 
+							hope that the other hunters will 
+							destroy it. <font color="greenyellow">(2 Min 30 Sec)</font>
+							Only in this way you will be 
+							freed. Otherwise you will die. 
+							To eliminate him you have to set fire to the correct <font color="greenyellow">Grave</font> and then exorcise the 
+							Windigo in a <font color="greenyellow">Pentagram</font> using the <font color="greenyellow">Carpet</font>.</p>
+							<img src="Ghost_wendigo.png" alt="Ghost_wendigo" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">First Burning of human remains Afterwards Exorcism (in Pentagram With Carpet)</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ghost_doll">Ghost Doll</li>
+						<li data-evidence="candle">Candle</li>
+						<h4>Defense</h4>
+						<li data-evidence="salt">Can walk on salt</li>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="screams">Screams</li>
+						<li data-evidence="fuse_box">Fuse Box</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Wendigo -->
+			<div class="ghost"><!-- ghost Werewolf -->
+				<div>
+					<h3>Werewolf</h3>
+					<div class="description">
+						<p>The Werewolf is a human who has 
+							been turned into a wolf using dark 
+							magic. He is fast, but can be defeated 
+							with <font color="greenyellow">Silver Ammunition</font>. But be careful 
+							that he dosen't get you. Otherwise, you 
+							can become a Werewolf yourself. He 
+							has a weakness for <font color="greenyellow">Salt</font> and honts only 
+							in the <font color="greenyellow">Dark</font>.</p>
+							<img src="Ghost_werewolf.png" alt="Ghost_werewolf" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Shotgun (Silvier Ammunition) in a Pentagram</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="cold_spots">Cold Spots</li>
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="candle">Candle</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="holy_water">Can be scared with holy water</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
+						<li data-evidence="contact">Contact</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Werewolf -->
+			<div class="ghost"><!-- ghost Fairy Seasonal-->
+				<div>
+					<h3>Fairy (Seasonal)</h3>
+					<div class="description">
+						<p>About Fairies there are many different
+							stories and myths. They are said to be 
+							good and close to the gods. They are 
+							described as noble and wise. Faires 
+							are known to protect  people and bring 
+							you blessings. But there are also some 
+							evil fairies described that can also be 
+							more powerful than the good ones.</p>
+						<p>The summer Creure described here is 
+							one such evil fairy. She has the power 
+							to make herself invisible and to kidnap 
+							people by magic into her fairy world.</p>
+							<img src="Ghost_Shapeshifter.png" alt="Ghost_Shapeshifter" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Katana After Teleport</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="crystal_ball">Crystal Ball</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<h4>Visable</h4>
+						<li data-evidence="not_visable">Can Not Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Fairy Seasonal -->
+			<div class="ghost"><!-- ghost Scarecrow Seasonal-->
+				<div>
+					<h3>Scarecrow (Seasonal)</h3>
+					<div class="description">
+						<p>Birds scarecrows are made to scarecrows
+							away birds. However, this scarecrow is 
+							a possessed object.  Only the devil 
+							knows who created this creature and 
+							how it was conjured.</p>
+						<p>Fortunately, scarecrows are made of 
+							flammable material
+						</p>
+						<p>But beware of the raven that protects 
+							the scarecrow!
+						</p>	
+							<img src="Ghost_Shapeshifter.png" alt="Ghost_Shapeshifter" style="width: 120px;height: 120px;">
+						<h4>To Destroy</h4>
+						<li style="background-color: #800000; color: #FFFFFF; padding: 5px; margin-bottom: 5px; border-radius: 5px; list-style: none;">Douse with gasoline and set it on fire (in the pentagram with carpet)</font></li>
+						<h4>Evidence</h4>
+					</div>
+					<ul class="evidence">
+						<li data-evidence="motion">Motion Detector</li>
+						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="ghost_orbs">Orbs</li>
+						<h4>Defense</h4>
+						<li data-evidence="pentagram">Can be captured in pentagram</li>
+						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
+						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<h4>Behaviors</h4>
+						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
+						<h4>Visible</h4>
+						<li data-evidence="visable">Can Be Seen</li>
+					</ul>
+				</div>
+			</div><!-- ghost Scarecrow Seasonal -->
+		</div><!-- ghosts -->
+		<footer><p>web app made by IGC Monster.</p></footer>
+	</div><!-- wrapper -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="https://unpkg.com/animate-css-grid@1.4.3/dist/main.js"></script>
+	<script>
+	  const ghost = document.querySelector("#ghosts");
+	  animateCSSGrid.wrapGrid(ghost, {duration : 600});
+	  const checkbox = document.querySelector("#evidence ul");
+	  animateCSSGrid.wrapGrid(checkbox, {duration : 600});
+	</script>
+</body>
