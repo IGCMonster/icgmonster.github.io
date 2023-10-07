@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Meta Physical - A Meta Physical Companion App</title>
+	<link rel="stylesheet" type="text/css" href="Tools.css">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+	<meta name="description" content="A Meta Physical Web App for help with tracking ghost evidence and information.">
+	<meta name="keywords" content="Meta Physical, Meta PhysicalHelpeor, Companion App, Web App,">
+	<meta name="author" content="IGCMonster">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+</head>
+<body class="orb" onload="loadSettings()">
+	<div class="wrapper">
+		<div id="desc">
+			<h1>Meta Physical</h1>
+			<p>This Section will go over all thed Tool in the Game></p>
+		</div>
+		
+		<div class="toggle_buttons">
+			<a href="index.html" id="toggle_tools">Go back</a>
+		</div><!-- toggle_buttons -->
+
+		<form>
+			<div id="role_descriptions">
+				<h2>Roles:</h2>
+				<p class="instructions"></p>
+					<div class="row">
+						<div id="role_list">
+							<div>
+								<input type="checkbox" id="doctor" />
+								<label for="doctor">The Doctor</label>
+								<img src="Role_The_Doctor.png" alt="Doctor" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="hunter" />
+								<label for="hunter">The Hunter</label>
+								<img src="Role_The_Hunter.png" alt="Hunter" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="priest" />
+								<label for="priest">The Priest</label>
+								<img src="Role_The_Priest.png" alt="Priest" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="medium" />
+								<label for="medium">The Medium</label>
+								<img src="Role_The_Medium.png" alt="Medium" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="prepper" />
+								<label for="prepper">The Prepper</label>
+								<img src="Role_The_Prepper.png" alt="Prepper" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="psychologist" />
+								<label for="psychologist">The Psychologist</label>
+								<img src="Role_The_Psychologist.png" alt="Psychologist" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="witch" />
+								<label for="witch">The Witch</label>
+								<img src="Role_The_Witch.png" alt="witch" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="investigator" />
+								<label for="investigator">The Investigator</label>
+								<img src="Role_The_Investigator.png" alt="investigator" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="druid" />
+								<label for="druid">The Druid</label>
+								<img src="Role_The_Druide.png" alt="druid" style="width: 100px;height: 100px;">
+							</div>
+							<div>
+								<input type="checkbox" id="half_demon" />
+								<label for="half_demon">The Half Demon</label>
+								<img src="Role_The_Half_Demon.png" alt="half_demon" style="width: 100px;height: 100px;">
+							</div>
+						</div><!-- Role_list -->
+						<div id="role_hints" class="hidden">
+							<div id="doctor_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Heal or Revive One Teammate Per Mission</td><td>Bandage Box </td><td>Nothing</td></tr>
+									<tr><td>Cannot Heal Self</td><td>Heals Player Who Picks It Up</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Doctor -->
+							<div id="hunter_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Has Four Shots in The Shotgun Instead of Two</td><td>Munitionskiste </td><td>More Hp</td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Hunter -->
+							<div id="priest_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>	
+									<tr><td>Can Exorcise Without Book</td><td>Cross</td><td>Nothing</td></tr>
+									<tr><td></td><td>(Ends Hunt Immediately)</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Priest-->
+							<div id="medium_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+									<tr><td>Can Locate the Creature even if it not hunting</td><td>Crystal</td><td>Usually Senses When Creature is About To Hunt</td></tr>
+									<tr><td>(Can Be Used Three Times)</td><td>(Ends Hunt Immediately)</td><td></td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Medium -->
+							<div id="prepper_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+									<tr><td>Can Place More Salt And Chalk</td><td>Box With Salt</td><td>More HP</td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Prepper -->
+							<div id="psychologist_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Place More Salt And Chalk</td><td>Calming Tablets</td><td>Does Not Get Scared</td></tr>
+									<tr><td>(Can Be Used 3 Times)</td><td></td><td>Ghostbox Reacts Independantly of the room</tr>
+								</table><br />
+								</div>
+							</div><!-- The Psychologist -->
+							<div id="witch_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Protection Spell: Own Player</td><td>Incense Sticks</td><td>Nothing</td></tr>
+									<tr><td>or Teammates can withstand</td><td>(Starts Hunting Immediately)</td><td></tr>
+									<tr><td>another blow.</td><td></td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Witch -->
+							<div id="investigator_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Receives a Reference</td><td>Flashlight Upgrade:</td><td>Fingerprints Never</td></tr>
+									<tr><td>To A Proof (1x Usable)</td><td>Use You Box To </td><td>Disappear</tr>
+									<tr><td></td><td>Upgrade You Flashlight</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Investigator -->
+							<div id="druid_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Paint Symbols on </td><td>Puppet: Directs</td><td>Nothing</td></tr>
+									<tr><td>The Ground That Stops</td><td>The Creature to Itself</td><td></tr>
+									<tr><td>Any Creature (1x usable)</td><td>During The Hunt</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Druid -->
+							<div id="half_demon_hint" class="hidden">
+								<div>
+									<table style="border-spacing: 80px 2px; text-align: left;">
+									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+									<tr><td>Can Kidnap A Creature </td><td>Relic From Hell:</td><td>Nothing</td></tr>
+									<tr><td>When It Makes A Kidnapping</td><td>Draws The Creature To</td><td></tr>
+									<tr><td>Attempt (1x usable)</td><td>Itself (Outside Of Hunt)</td><td></tr>
+								</table><br />
+								</div>
+							</div><!-- The Half Demon -->
+							</div><!-- Role_hints -->
+						</div>
+			</div><!-- role_descriptions -->
+		</form>
+		<footer><p>web app made by IGC Monster.</p></footer>
+	</div><!-- wrapper -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="Tools.js"></script>
+	<script src="https://unpkg.com/animate-css-grid@1.4.3/dist/main.js"></script>
+	<script>
+	  const ghost = document.querySelector("#ghosts");
+	  animateCSSGrid.wrapGrid(ghost, {duration : 600});
+	  const checkbox = document.querySelector("#evidence ul");
+	  animateCSSGrid.wrapGrid(checkbox, {duration : 600});
+	</script>
+</body>
