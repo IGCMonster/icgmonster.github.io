@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Meta Physical - A Meta Physical Companion App</title>
-	<link rel="stylesheet" type="text/css" href="Main.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 	<meta name="description" content="A Meta Physical Web App for help with tracking ghost evidence and information.">
 	<meta name="keywords" content="Meta Physical, Meta PhysicalHelpeor, Companion App, Web App,">
@@ -15,7 +15,7 @@
 		<div id="desc">
 			<h1>Meta Physical</h1>
 			<p>A web app for tracking evidence during contracts in the game Meta Physical. This is a supplemental tool for the journal on hunts.</p>
-			<h1>Game Version-B.13.5</h1>
+			<p>Game Version-B.13.5</p>
 		</div>
 		<!-- toggle_buttons -->
 		<div class="toggle_buttons">
@@ -227,8 +227,8 @@
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="shotgun">Can be scared with shotgun</label>
-								<input type="range" name="shotgun" id="shotgun" min="0" max="2" />
+								<label for="shotgun_evidence">Can be scared with shotgun</label>
+								<input type="range" name="shotgun_evidence" id="shotgun_evidence" min="0" max="2" />
 							</div>
 						</li>
 						<li>
@@ -239,14 +239,14 @@
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="katana">Can be scared by katana</label>
-								<input type="range" name="katana" id="katana" min="0" max="2" />
+								<label for="katana_evidence">Can be scared by katana</label>
+								<input type="range" name="katana_evidence" id="katana_evidence" min="0" max="2" />
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="knife">Can be scared with knife</label>
-								<input type="range" name="knife" id="knife" min="0" max="2" />
+								<label for="knife_evidence">Can be scared with knife</label>
+								<input type="range" name="knife_evidence" id="knife_evidence" min="0" max="2" />
 							</div>
 						</li>
 					</ul>
@@ -433,10 +433,51 @@
 						</li>
 					</ul>
 				</div>
-			</div><!-- Behavior checkboxes -->
+			</div><!-- Visible checkboxes -->
+			<div id="evidence"><!-- Exorcisms checkboxes -->
+				<h2>Types of Exorcisms:</h2>
+				<p class="instructions">This is the type of Exorcisms you may need for each ghost. 
+					Slide left to confirm type
+					and right to eliminated type.
+				</p>
+				<div id="evidence_list">
+					<ul>
+						<li>
+							<div class="evidenceToggle">
+								<label for="burning_exorcism">Exorcism By Burning Remains</label>
+								<input type="range" name="burning_exorcism" id="burning_exorcism" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="book_exorcism">Exorcism With Book</label>
+								<input type="range" name="book_exorcism" id="book_exorcism" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="knife_exorcism">Exorcism With Knife</label>
+								<input type="range" name="knife_exorcism" id="knife_exorcism" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="katana_exorcism">Exorcism With Katana</label>
+								<input type="range" name="katana_exorcism" id="katana_exorcism" min="0" max="2" />
+							</div>
+						</li>
+						<li>
+							<div class="evidenceToggle">
+								<label for="shotgun_exorcism">Exorcism With Katana</label>
+								<input type="range" name="shotgun_exorcism" id="shotgun_exorcism" min="0" max="2" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div><!-- Exorcisms checkboxes -->
 		</form>
 		<div class="warning">
-			<div class="warning_text">Please select up to 3 pieces of evidence to narrow down the ghost. Click it again to eliminate it as a possibility.</div>
+			<div class="warning_text">Please select evidence to narrow down the ghost. Click it again to eliminate it as a possibility.</div>
 		</div>
 		<h2>Possible Ghosts:</h2>
 		<div id="ghosts"><!-- ghosts -->
@@ -466,13 +507,14 @@
 						<h4>Defense</h4>
 						<!-- Defenses/Vulnerabilities of the Ghost -->
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<!-- Behaviors of the Ghost -->
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- Ghost Spirit -->
@@ -511,6 +553,7 @@
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="knife_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- Ghost Djinn -->			
@@ -542,7 +585,7 @@
 						<li data-evidence="salt">Can walk on salt</li>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<li data-evidence="holy_water">Can be scared with holy water</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="screams">Screams</li>
@@ -551,6 +594,7 @@
 						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="book_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Nun -->
@@ -580,7 +624,7 @@
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<li data-evidence="holy_water">Can be scared with holy water</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="brakes_lights">Brakes Lights</li>
@@ -590,6 +634,7 @@
 						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="book_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Demon -->
@@ -628,6 +673,7 @@
 						<li data-evidence="television">Cuts On Television</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="book_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Nightmare -->
@@ -656,7 +702,7 @@
 						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="light_switches">Light Switches</li>
 						<li data-evidence="flips_crosses">Flip Crosses</li>
@@ -668,6 +714,7 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Poltergeist -->
@@ -693,12 +740,13 @@
 						<li data-evidence="crystal_ball">Crystal Ball</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="screams">Screams</li>
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Revenant -->
@@ -732,6 +780,7 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Buruburu -->
@@ -757,12 +806,13 @@
 						<li data-evidence="candle">Candle</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<li data-evidence="contact">Contact</li>
 						<h4>Visable</h4>
 						<li data-evidence="not_visable">Can Not Be Seen</li>
+						<li data-evidence="katana_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Shojo -->
@@ -791,6 +841,7 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="katana_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Yuki Onna -->
@@ -852,6 +903,7 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visable</h4>
 						<li data-evidence="not_visable">Can Not Be Seen</li>
+						<li data-evidence="knife_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Domovoy -->
@@ -888,6 +940,7 @@
 						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="book_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Baba Yaga -->
@@ -917,6 +970,7 @@
 						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="knife_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Drake -->
@@ -942,6 +996,7 @@
 						<li data-evidence="fuse_box">Fuse Box</li>
 						<h4>Visable</h4>
 						<li data-evidence="not_visable">Can Not Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Phantom -->
@@ -968,7 +1023,7 @@
 						<li data-evidence="fingers">Fingerprints</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<li data-evidence="holy_water">Can be scared with holy water</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="light_switches">Light Switches</li>
@@ -976,6 +1031,7 @@
 						<li data-evidence="television">Cuts On Television</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="shotgun_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Shapeshifter -->
@@ -1014,6 +1070,7 @@
 						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="shotgun_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Arachne -->
@@ -1052,6 +1109,7 @@
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="shotgun_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Ghoul -->
@@ -1083,6 +1141,7 @@
 						<li data-evidence="screams">Screams</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="knife_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Siren -->
@@ -1123,6 +1182,7 @@
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="shotgun_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Grieving Gargoyle -->
@@ -1165,6 +1225,8 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="burning_exorcism"></li>
+						<li data-evidence="book_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Wendigo -->
@@ -1200,6 +1262,7 @@
 						<li data-evidence="contact">Contact</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="shotgun_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Werewolf -->
@@ -1231,11 +1294,12 @@
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<h4>Visable</h4>
 						<li data-evidence="not_visable">Can Not Be Seen</li>
+						<li data-evidence="katana_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Fairy Seasonal -->
@@ -1266,11 +1330,12 @@
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
-						<li data-evidence="shotgun">Can be scared with shotgun</li>
+						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<h4>Visible</h4>
 						<li data-evidence="visable">Can Be Seen</li>
+						<li data-evidence="book_exorcism">Can Be Seen</li>
 					</ul>
 				</div>
 			</div><!-- ghost Scarecrow Seasonal -->
@@ -1278,8 +1343,8 @@
 		<footer><p>web app made by IGC Monster.</p></footer>
 	</div><!-- wrapper -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="Main.js"></script>
-	<script src="https://unpkg.com/animate-css-grid@1.4.3/dist/Main.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script src="https://unpkg.com/animate-css-grid@1.4.3/dist/main.js"></script>
 	<script>
 	  const ghost = document.querySelector("#ghosts");
 	  animateCSSGrid.wrapGrid(ghost, {duration : 600});
