@@ -33,7 +33,7 @@
 				<li>Once your contract is finished, click the "Reset" button near the top to start over!</li>
 			</ol>
 		</div>
-		<form>
+		<form><!-- Ghost Checkboxes -->
 			<div id="ghost_info"><!-- ghost_info -->
 				<h2>Ghost Information:</h2>
 				<p class="instructions">Type in your ghost name.</p>
@@ -45,66 +45,69 @@
 			</div><!-- ghost_info -->
 			<div id="role_descriptions"><!-- role_descriptions -->
 				<h2>Roles:</h2>
-				<p class="instructions">You be able to choose a role after level 50 in game. Each role has a special abilities that are not available
-					to any other player! Press the F key in game to use your ability. When doing so, you 
-					should not be holding any objects in your hands. Remember that you can only 
-					use your ability a limit number of times depending on the roles you choose.
+				<p class="instructions">
+					You be able to choose a role after level 50 in game. Each 
+					role has a special abilities that are not available to any 
+					other player! Press the F key in game to use your ability. 
+					When doing so, you should not be holding any objects in 
+					your hands. Remember that you can only use your ability a 
+					limit number of times depending on the roles you choose.
 				</p>
 					<div class="row">
 						<div id="role_list">
-							<div>
+							<div><!-- The Doctor -->
 								<input type="checkbox" id="doctor" />
 								<label for="doctor">The Doctor</label>
 								<img src="Role_The_Doctor.png" alt="Doctor" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Doctor -->
+							<div><!-- The Hunter -->
 								<input type="checkbox" id="hunter" />
 								<label for="hunter">The Hunter</label>
 								<img src="Role_The_Hunter.png" alt="Hunter" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Hunter -->
+							<div><!-- The Priest-->
 								<input type="checkbox" id="priest" />
 								<label for="priest">The Priest</label>
 								<img src="Role_The_Priest.png" alt="Priest" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Priest-->
+							<div><!-- The Medium -->
 								<input type="checkbox" id="medium" />
 								<label for="medium">The Medium</label>
 								<img src="Role_The_Medium.png" alt="Medium" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Medium -->
+							<div><!-- The Prepper -->
 								<input type="checkbox" id="prepper" />
 								<label for="prepper">The Prepper</label>
 								<img src="Role_The_Prepper.png" alt="Prepper" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Prepper -->
+							<div><!-- The Psychologist -->
 								<input type="checkbox" id="psychologist" />
 								<label for="psychologist">The Psychologist</label>
 								<img src="Role_The_Psychologist.png" alt="Psychologist" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Psychologist -->
+							<div><!-- The Witch -->
 								<input type="checkbox" id="witch" />
 								<label for="witch">The Witch</label>
 								<img src="Role_The_Witch.png" alt="witch" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Witch -->
+							<div><!-- The Investigator -->
 								<input type="checkbox" id="investigator" />
 								<label for="investigator">The Investigator</label>
 								<img src="Role_The_Investigator.png" alt="investigator" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Investigator -->
+							<div><!-- The Druid -->
 								<input type="checkbox" id="druid" />
 								<label for="druid">The Druid</label>
 								<img src="Role_The_Druide.png" alt="druid" style="width: 100px;height: 100px;">
-							</div>
-							<div>
+							</div><!-- The Druid -->
+							<div><!-- The Half Demon -->
 								<input type="checkbox" id="half_demon" />
 								<label for="half_demon">The Half Demon</label>
 								<img src="Role_The_Half_Demon.png" alt="half_demon" style="width: 100px;height: 100px;">
-							</div>
+							</div><!-- The Half Demon -->
 						</div><!-- Role_list -->
 						<div id="role_hints" class="hidden">
-							<div id="doctor_hint" class="hidden">
+							<div id="doctor_hint" class="hidden"><!-- The Doctor -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -113,7 +116,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Doctor -->
-							<div id="hunter_hint" class="hidden">
+							<div id="hunter_hint" class="hidden"><!-- The Hunter -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -121,7 +124,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Hunter -->
-							<div id="priest_hint" class="hidden">
+							<div id="priest_hint" class="hidden"><!-- The Priest-->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>	
@@ -130,7 +133,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Priest-->
-							<div id="medium_hint" class="hidden">
+							<div id="medium_hint" class="hidden"><!-- The Medium -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
@@ -139,7 +142,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Medium -->
-							<div id="prepper_hint" class="hidden">
+							<div id="prepper_hint" class="hidden"><!-- The Prepper -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
@@ -147,7 +150,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Prepper -->
-							<div id="psychologist_hint" class="hidden">
+							<div id="psychologist_hint" class="hidden"><!-- The Psychologist -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -156,7 +159,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Psychologist -->
-							<div id="witch_hint" class="hidden">
+							<div id="witch_hint" class="hidden"><!-- The Witch -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -166,7 +169,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Witch -->
-							<div id="investigator_hint" class="hidden">
+							<div id="investigator_hint" class="hidden"><!-- The Investigator -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -176,7 +179,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Investigator -->
-							<div id="druid_hint" class="hidden">
+							<div id="druid_hint" class="hidden"><!-- The Druid -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -186,7 +189,7 @@
 								</table><br />
 								</div>
 							</div><!-- The Druid -->
-							<div id="half_demon_hint" class="hidden">
+							<div id="half_demon_hint" class="hidden"><!-- The Half Demon -->
 								<div>
 									<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
@@ -475,7 +478,7 @@
 					</ul>
 				</div>
 			</div><!-- Exorcisms checkboxes -->
-		</form>
+		</form><!-- Ghost Checkboxes -->
 		<div class="warning">
 			<div class="warning_text">Please select evidence to narrow down the ghost. Click it again to eliminate it as a possibility.</div>
 		</div>
