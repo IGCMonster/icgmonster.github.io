@@ -286,7 +286,7 @@ input[type="checkbox"]:checked + label {
 }
 
 #evidence_list ul li.disabled {
-	display: none;
+	/*display: none;*/
 }
 
 #evidence_list input[type="checkbox"].no + label {
