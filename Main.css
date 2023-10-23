@@ -71,7 +71,7 @@ body {
 
 .toggle_buttons a.active {
 	color: #fff;
-	background: #f41f86;
+	background: #1a971a;
 }
 
 .toggle_buttons a#reset.active  {
@@ -110,7 +110,7 @@ span {
 span.minimal {
 	width: 100%;
 	height: 3px;
-	background: #f41f86;
+	background: #1a971a;
 	display: block;
 	margin: 0 0 20px 0;
 }
@@ -149,7 +149,7 @@ input[type="text"] {
 	border: none;
 	outline: none;
 	text-decoration: none;
-	color: #f41f86;
+	color: #1a971a;
 	font-size: 22px;
 	padding: 5px;
 	margin: 0;
@@ -184,7 +184,7 @@ input[type=reset] {
 }
 
 input[type=reset]:hover {
-	background-color: #f41f86;
+	background-color: #1a971a;
 }
 
 #role_descriptions {
@@ -252,7 +252,7 @@ input[type="checkbox"] + label {
 }
 
 input[type="checkbox"]:checked + label {
-	background: #f41f86;
+	background: #1a971a;
 	text-decoration: none;
 }
 
@@ -311,7 +311,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .evidenceToggle input[type="range"].yes::-webkit-slider-thumb  {
-	background-color: #00ff00;
+	background-color: #1a971a;
 }
 
 .evidenceToggle input[type="range"].no::-webkit-slider-thumb {
@@ -328,7 +328,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .evidenceToggle input[type="range"].yes::-moz-range-thumb  {
-	background-color: #f41f86;
+	background-color: #1a971a;
 }
 
 .evidenceToggle input[type="range"].no::-moz-range-thumb  {
@@ -398,7 +398,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .ghost .evidence li.yes {
-	background-color: #f41f86;
+	background-color: #1a971a;
 }
 
 .ghost .evidence li.no {
@@ -410,13 +410,13 @@ footer {
 }
 
 a {
-	color: #f41f86;
+	color: #1a971a;
 	font-weight: 700;
 	padding: 0 2px;
 }
 
 a:hover {
-	background: #f41f86;
+	background: #1a971a;
 	color: #fff;
 }
 
@@ -475,7 +475,7 @@ a:hover {
 	}
 	.ghost {
 		width: 100%;
-		border-bottom: 4px solid #f41f86;
+		border-bottom: 4px solid #1a971a;
 		padding: 0 0 20px 0;
 	}
 }
