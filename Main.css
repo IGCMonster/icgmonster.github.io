@@ -26,6 +26,11 @@ body {
 	background-image: url('orb.gif');
 }
 
+.shadow {
+	background-color: #00000080;
+    padding: 1px;
+}
+
 .warning {
 	padding: 5px 10px;
 	margin: 0 0 35px 0;
