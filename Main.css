@@ -390,8 +390,6 @@ input[type="checkbox"]:checked + label {
 	font-size: 13px;
 	font-weight: bolder;
 	color: #000000;
-	background-color: #00000080; 
-	
 }
 
 .ghost .evidence li {
@@ -499,3 +497,4 @@ a:hover {
 }
 
 /*display: none; made the check boxes not disapere and added a shadow class 10/22/2023*/
+/*removed background color from ghost description 10/22/2023*/
