@@ -315,7 +315,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .evidenceToggle input[type="range"].no::-webkit-slider-thumb {
-	background-color: #ff0000;
+	background-color: #971a1a;
 }
 
 .evidenceToggle input[type="range"]::-moz-range-thumb  {
