@@ -21,7 +21,7 @@
 		<div class="toggle_buttons">
 			<a href="Tools.html" id="toggle_tools">View Tools</a>
 			<a href="javascript:void(0);" id="toggle_instructions">Toggle Instructions</a>
-			<a href="javascript:void(0);" id="reset">Reset</a>
+			<button id="resetButton">Reset</button>
 		</div>
 		<!-- toggle_buttons -->
 		<div class="instructions">
@@ -52,191 +52,210 @@
 					your hands. Remember that you can only use your ability a 
 					limit number of times depending on the roles you choose.
 				</p>
-					<div class="row">
-						<div id="role_list">
-							<div><!-- The Doctor -->
-								<input type="checkbox" id="doctor" />
-								<label for="doctor">The Doctor</label>
-								<img src="Role_The_Doctor.png" alt="Doctor" style="width: 100px;height: 100px;">
-							</div><!-- The Doctor -->
-							<div><!-- The Hunter -->
-								<input type="checkbox" id="hunter" />
-								<label for="hunter">The Hunter</label>
-								<img src="Role_The_Hunter.png" alt="Hunter" style="width: 100px;height: 100px;">
-							</div><!-- The Hunter -->
-							<div><!-- The Priest-->
-								<input type="checkbox" id="priest" />
-								<label for="priest">The Priest</label>
-								<img src="Role_The_Priest.png" alt="Priest" style="width: 100px;height: 100px;">
-							</div><!-- The Priest-->
-							<div><!-- The Medium -->
-								<input type="checkbox" id="medium" />
-								<label for="medium">The Medium</label>
-								<img src="Role_The_Medium.png" alt="Medium" style="width: 100px;height: 100px;">
-							</div><!-- The Medium -->
-							<div><!-- The Prepper -->
-								<input type="checkbox" id="prepper" />
-								<label for="prepper">The Prepper</label>
-								<img src="Role_The_Prepper.png" alt="Prepper" style="width: 100px;height: 100px;">
-							</div><!-- The Prepper -->
-							<div><!-- The Psychologist -->
-								<input type="checkbox" id="psychologist" />
-								<label for="psychologist">The Psychologist</label>
-								<img src="Role_The_Psychologist.png" alt="Psychologist" style="width: 100px;height: 100px;">
-							</div><!-- The Psychologist -->
-							<div><!-- The Witch -->
-								<input type="checkbox" id="witch" />
-								<label for="witch">The Witch</label>
-								<img src="Role_The_Witch.png" alt="witch" style="width: 100px;height: 100px;">
-							</div><!-- The Witch -->
-							<div><!-- The Investigator -->
-								<input type="checkbox" id="investigator" />
-								<label for="investigator">The Investigator</label>
-								<img src="Role_The_Investigator.png" alt="investigator" style="width: 100px;height: 100px;">
-							</div><!-- The Investigator -->
-							<div><!-- The Druid -->
-								<input type="checkbox" id="druid" />
-								<label for="druid">The Druid</label>
-								<img src="Role_The_Druide.png" alt="druid" style="width: 100px;height: 100px;">
-							</div><!-- The Druid -->
-							<div><!-- The Half Demon -->
-								<input type="checkbox" id="half_demon" />
-								<label for="half_demon">The Half Demon</label>
-								<img src="Role_The_Half_Demon.png" alt="half_demon" style="width: 100px;height: 100px;">
-							</div><!-- The Half Demon -->
-						</div><!-- Role_list -->
-						<div id="role_hints" class="hidden">
-							<div id="doctor_hint" class="hidden"><!-- The Doctor -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
-									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
-									<tr><td>Can Heal or Revive One Teammate Per Mission</td><td>Bandage Box </td><td>Nothing</td></tr>
-									<tr><td>Cannot Heal Self</td><td>Heals Player Who Picks It Up</td><td></td></tr>
-								</table><br />
-								</div>
-							</div><!-- The Doctor -->
-							<div id="hunter_hint" class="hidden"><!-- The Hunter -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
-									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
-									<tr><td>Has Four Shots in The Shotgun Instead of Two</td><td>Munitionskiste </td><td>More Hp</td></tr>
-								</table><br />
-								</div>
-							</div><!-- The Hunter -->
-							<div id="priest_hint" class="hidden"><!-- The Priest-->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
-									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>	
-									<tr><td>Can Exorcise Without Book</td><td>Cross</td><td>Nothing</td></tr>
-									<tr><td></td><td>(Ends Hunt Immediately)</td><td></td></tr>
-								</table><br />
-								</div>
-							</div><!-- The Priest-->
-							<div id="medium_hint" class="hidden"><!-- The Medium -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
-									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
-									<tr><td>Can Locate the Creature even if it not hunting</td><td>Crystal</td><td>Usually Senses When Creature is About To Hunt</td></tr>
-									<tr><td>(Can Be Used Three Times)</td><td>(Ends Hunt Immediately)</td><td></td></tr>
-								</table><br />
-								</div>
-							</div><!-- The Medium -->
-							<div id="prepper_hint" class="hidden"><!-- The Prepper -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
-									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
-									<tr><td>Can Place More Salt And Chalk</td><td>Box With Salt</td><td>More HP</td></tr>
-								</table><br />
-								</div>
-							</div><!-- The Prepper -->
-							<div id="psychologist_hint" class="hidden"><!-- The Psychologist -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
+				<div class="row">
+					<div id="role_list">
+						<div><!-- The Doctor -->
+							<input type="checkbox" id="doctor" />
+							<label for="doctor">The Doctor</label>
+							<img src="Role_The_Doctor.png" alt="Doctor" style="width: 100px;height: 100px;">
+						</div><!-- The Doctor -->
+						<div><!-- The Hunter -->
+							<input type="checkbox" id="hunter" />
+							<label for="hunter">The Hunter</label>
+							<img src="Role_The_Hunter.png" alt="Hunter" style="width: 100px;height: 100px;">
+						</div><!-- The Hunter -->
+						<div><!-- The Priest-->
+							<input type="checkbox" id="priest" />
+							<label for="priest">The Priest</label>
+							<img src="Role_The_Priest.png" alt="Priest" style="width: 100px;height: 100px;">
+						</div><!-- The Priest-->
+						<div><!-- The Medium -->
+							<input type="checkbox" id="medium" />
+							<label for="medium">The Medium</label>
+							<img src="Role_The_Medium.png" alt="Medium" style="width: 100px;height: 100px;">
+						</div><!-- The Medium -->
+						<div><!-- The Prepper -->
+							<input type="checkbox" id="prepper" />
+							<label for="prepper">The Prepper</label>
+							<img src="Role_The_Prepper.png" alt="Prepper" style="width: 100px;height: 100px;">
+						</div><!-- The Prepper -->
+						<div><!-- The Psychologist -->
+							<input type="checkbox" id="psychologist" />
+							<label for="psychologist">The Psychologist</label>
+							<img src="Role_The_Psychologist.png" alt="Psychologist" style="width: 100px;height: 100px;">
+						</div><!-- The Psychologist -->
+						<div><!-- The Witch -->
+							<input type="checkbox" id="witch" />
+							<label for="witch">The Witch</label>
+							<img src="Role_The_Witch.png" alt="witch" style="width: 100px;height: 100px;">
+						</div><!-- The Witch -->
+						<div><!-- The Investigator -->
+							<input type="checkbox" id="investigator" />
+							<label for="investigator">The Investigator</label>
+							<img src="Role_The_Investigator.png" alt="investigator" style="width: 100px;height: 100px;">
+						</div><!-- The Investigator -->
+						<div><!-- The Druid -->
+							<input type="checkbox" id="druid" />
+							<label for="druid">The Druid</label>
+							<img src="Role_The_Druide.png" alt="druid" style="width: 100px;height: 100px;">
+						</div><!-- The Druid -->
+						<div><!-- The Half Demon -->
+							<input type="checkbox" id="half_demon" />
+							<label for="half_demon">The Half Demon</label>
+							<img src="Role_The_Half_Demon.png" alt="half_demon" style="width: 100px;height: 100px;">
+						</div><!-- The Half Demon -->
+					</div><!-- Role_list -->
+					<div id="role_hints" class="hidden">
+						<div id="doctor_hint" class="hidden"><!-- The Doctor -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
+								<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+								<tr><td>Can Heal or Revive One Teammate Per Mission</td><td>Bandage Box </td><td>Nothing</td></tr>
+								<tr><td>Cannot Heal Self</td><td>Heals Player Who Picks It Up</td><td></td></tr>
+							</table><br />
+							</div>
+						</div><!-- The Doctor -->
+						<div id="hunter_hint" class="hidden"><!-- The Hunter -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
+								<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
+								<tr><td>Has Four Shots in The Shotgun Instead of Two</td><td>Munitionskiste </td><td>More Hp</td></tr>
+							</table><br />
+							</div>
+						</div><!-- The Hunter -->
+						<div id="priest_hint" class="hidden"><!-- The Priest-->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
+								<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>	
+								<tr><td>Can Exorcise Without Book</td><td>Cross</td><td>Nothing</td></tr>
+								<tr><td></td><td>(Ends Hunt Immediately)</td><td></td></tr>
+							</table><br />
+							</div>
+						</div><!-- The Priest-->
+						<div id="medium_hint" class="hidden"><!-- The Medium -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
+								<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+								<tr><td>Can Locate the Creature even if it not hunting</td><td>Crystal</td><td>Usually Senses When Creature is About To Hunt</td></tr>
+								<tr><td>(Can Be Used Three Times)</td><td>(Ends Hunt Immediately)</td><td></td></tr>
+							</table><br />
+							</div>
+						</div><!-- The Medium -->
+						<div id="prepper_hint" class="hidden"><!-- The Prepper -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
+								<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>
+								<tr><td>Can Place More Salt And Chalk</td><td>Box With Salt</td><td>More HP</td></tr>
+							</table><br />
+							</div>
+						</div><!-- The Prepper -->
+						<div id="psychologist_hint" class="hidden"><!-- The Psychologist -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
 									<tr><td>Can Place More Salt And Chalk</td><td>Calming Tablets</td><td>Does Not Get Scared</td></tr>
-									<tr><td>(Can Be Used 3 Times)</td><td></td><td>Ghostbox Reacts Independantly of the room</tr>
+									<tr><td>(Can Be Used 3 Times)</td><td>Ghostbox Reacts Independantly of the room</td></tr>
 								</table><br />
-								</div>
-							</div><!-- The Psychologist -->
-							<div id="witch_hint" class="hidden"><!-- The Witch -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
+							</div>
+						</div><!-- The Psychologist -->
+						<div id="witch_hint" class="hidden"><!-- The Witch -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
 									<tr><td>Protection Spell: Own Player</td><td>Incense Sticks</td><td>Nothing</td></tr>
-									<tr><td>or Teammates can withstand</td><td>(Starts Hunting Immediately)</td><td></tr>
-									<tr><td>another blow.</td><td></td><td></tr>
+									<tr><td>or Teammates can withstand</td><td>(Starts Hunting Immediately)</td></tr>
+									<tr><td>another blow.</td><td></td></tr>
 								</table><br />
-								</div>
-							</div><!-- The Witch -->
-							<div id="investigator_hint" class="hidden"><!-- The Investigator -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
+							</div>
+						</div><!-- The Witch -->
+						<div id="investigator_hint" class="hidden"><!-- The Investigator -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
 									<tr><td>Receives a Reference</td><td>Flashlight Upgrade:</td><td>Fingerprints Never</td></tr>
-									<tr><td>To A Proof (1x Usable)</td><td>Use You Box To </td><td>Disappear</tr>
-									<tr><td></td><td>Upgrade You Flashlight</td><td></tr>
+									<tr><td>To A Proof (1x Usable)</td><td>Use You Box To Disappear</td></tr>
+									<tr><td></td><td>Upgrade You Flashlight</td></tr>
 								</table><br />
-								</div>
-							</div><!-- The Investigator -->
-							<div id="druid_hint" class="hidden"><!-- The Druid -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
+							</div>
+						</div><!-- The Investigator -->
+						<div id="druid_hint" class="hidden"><!-- The Druid -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
 									<tr><td>Can Paint Symbols on </td><td>Puppet: Directs</td><td>Nothing</td></tr>
-									<tr><td>The Ground That Stops</td><td>The Creature to Itself</td><td></tr>
-									<tr><td>Any Creature (1x usable)</td><td>During The Hunt</td><td></tr>
+									<tr><td>The Ground That Stops</td><td>The Creature to Itself</td></tr>							
+									<tr><td>Any Creature (1x usable)</td><td>During The Hunt</td></tr>							
 								</table><br />
-								</div>
-							</div><!-- The Druid -->
-							<div id="half_demon_hint" class="hidden"><!-- The Half Demon -->
-								<div>
-									<table style="border-spacing: 80px 2px; text-align: left;">
+							</div>
+						</div><!-- The Druid -->
+						<div id="half_demon_hint" class="hidden"><!-- The Half Demon -->
+							<div>
+								<table style="border-spacing: 80px 2px; text-align: left;">
 									<tr><th>Main Capability</th><th>Box</th><th>Passive Ability</th></tr>		
 									<tr><td>Can Kidnap A Creature </td><td>Relic From Hell:</td><td>Nothing</td></tr>
-									<tr><td>When It Makes A Kidnapping</td><td>Draws The Creature To</td><td></tr>
-									<tr><td>Attempt (1x usable)</td><td>Itself (Outside Of Hunt)</td><td></tr>
+									<tr><td>When It Makes A Kidnapping</td><td>Draws The Creature To</td></tr>
+									<tr><td>Attempt (1x usable)</td><td>Itself (Outside Of Hunt)</td></tr>
 								</table><br />
-								</div>
-							</div><!-- The Half Demon -->
-							</div><!-- Role_hints -->
-						</div>
+							</div>
+						</div><!-- The Half Demon -->
+					</div><!-- Role_hints -->
+				</div>
 			</div><!-- role_descriptions -->
 			<div id="evidence"><!-- Defense checkboxes -->
 				<h2>Confirmed Defense:</h2>
 				<p class="instructions">Track found Defense here. 
 					Slide left to confirmed defense 
 					and right to eliminated defense.</p>
-
 				<div id="evidence_list">
 					<ul>
 						<li>
 							<div class="evidenceToggle">
 								<label for="salt">Creature can walk on salt</label>
-								<input type="range" name="salt" id="salt" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="salt_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="salt_White" style="display:block">
+									<input type="button" class="evidenceButton" id="salt_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="pentagram">Can be captured in pentagram</label>
-								<input type="range" name="pentagram" id="pentagram" min="0" max="2" />
+								<label for="pentagram">Captured in a Pentagram</label>
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="pentagram_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="pentagram_White" style="display:block">
+									<input type="button" class="evidenceButton" id="pentagram_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="pentagrams_seen">Will avoid pentagrams if seen</label>
-								<input type="range" name="pentagrams_seen" id="pentagrams_seen" min="0" max="2" />
+								<label for="pentagram_seen">Will avoid pentagrams if seen</label>
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="pentagrams_seen_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="pentagrams_seen_White" style="display:block">
+									<input type="button" class="evidenceButton" id="pentagrams_seen_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="shotgun_evidence">Can be scared with shotgun</label>
-								<input type="range" name="shotgun_evidence" id="shotgun_evidence" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="shotgun_evidence_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="shotgun_evidence_White" style="display:block">
+									<input type="button" class="evidenceButton" id="shotgun_evidence_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="holy_water">Can be scared with holy water</label>
-								<input type="range" name="holy_water" id="holy_water" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="holy_water_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="holy_water_White" style="display:block">
+									<input type="button" class="evidenceButton" id="holy_water_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
@@ -264,85 +283,141 @@
 						<li>
 							<div class="evidenceToggle">
 								<label for="emf">EMF</label>
-								<input type="range" name="emf" id="emf" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="emf_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="emf_White" style="display:block">
+									<input type="button" class="evidenceButton" id="emf_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="emf_5">EMF Level 5</label>
-								<input type="range" name="emf_5" id="emf_5" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="emf_5_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="emf_5_White" style="display:block">
+									<input type="button" class="evidenceButton" id="emf_5_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="cold_spots">Cold Spots</label>
-								<input type="range" name="cold_spots" id="cold_spots" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="cold_spots_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="cold_spots_White" style="display:block">
+									<input type="button" class="evidenceButton" id="cold_spots_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="freezing">Minus Degrees</label>
-								<input type="range" name="freezing" id="freezing" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="freezing_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="freezing_White" style="display:block">
+									<input type="button" class="evidenceButton" id="freezing_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="motion">Motion Detector</label>
-								<input type="range" name="motion" id="motion" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="motion_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="motion_White" style="display:block">
+									<input type="button" class="evidenceButton" id="motion_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="ghost_box">Ghost Box</label>
-								<input type="range" name="ghost_box" id="ghost_box" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="ghost_box_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="ghost_box_White" style="display:block">
+									<input type="button" class="evidenceButton" id="ghost_box_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
-								<label for="fingers">Fingerprints</label>
-								<input type="range" name="fingers" id="fingers" min="0" max="2" />
+								<label for="handprint">Fingerprints</label>
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="handprint_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="handprint_White" style="display:block">
+									<input type="button" class="evidenceButton" id="handprint_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="ghost_orbs">Orbs</label>
-								<input type="range" name="ghost_orbs" id="ghost_orbs" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="ghost_orbs_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="ghost_orbs_White" style="display:block">
+									<input type="button" class="evidenceButton" id="ghost_orbs_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="ouija_board">Oui<em>J</em>a Board</label>
-								<input type="range" name="ouija_board" id="ouija_board" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="ouija_board_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="ouija_board_White" style="display:block">
+									<input type="button" class="evidenceButton" id="ouija_board_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="ghost_doll">Ghost Doll</label>
-								<input type="range" name="ghost_doll" id="ghost_doll" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="ghost_doll_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="ghost_doll_White" style="display:block">
+									<input type="button" class="evidenceButton" id="ghost_doll_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="crystal_ball">Crystal Ball</label>
-								<input type="range" name="crystal_ball" id="crystal_ball" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="crystal_ball_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="crystal_ball_White" style="display:block">
+									<input type="button" class="evidenceButton" id="crystal_ball_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="statue_of_mary">Statue Of Mary</label>
-								<input type="range" name="statue_of_mary" id="statue_of_mary" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="statue_of_mary_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="statue_of_mary_White" style="display:block">
+									<input type="button" class="evidenceButton" id="statue_of_mary_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="candle">Candle</label>
-								<input type="range" name="candle" id="candle" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="candle_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="candle_White" style="display:block">
+									<input type="button" class="evidenceButton" id="candle_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="h2s_meter">H<em>2</em>S Meter</label>
-								<input type="range" name="h2s_meter" id="h2s_meter" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="h2s_meter_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="h2s_meter_White" style="display:block">
+									<input type="button" class="evidenceButton" id="h2s_meter_Red" style="display:none">
+								</div>
 							</div>
 						</li>
 					</ul>
@@ -359,61 +434,91 @@
 						<li>
 							<div class="evidenceToggle">
 								<label for="light_switches">Light Switches</label>
-								<input type="range" name="light_switches" id="light_switches" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="light_switches_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="light_switches_White" style="display:block">
+									<input type="button" class="evidenceButton" id="light_switches_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="brakes_lights">Brakes Lights</label>
-								<input type="range" name="brakes_lights" id="brakes_lights" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="brakes_lights_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="brakes_lights_White" style="display:block">
+									<input type="button" class="evidenceButton" id="brakes_lights_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="screams">Screams</label>
-								<input type="range" name="screams" id="screams" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="screams_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="screams_White" style="display:block">
+									<input type="button" class="evidenceButton" id="screams_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="flips_crosses">Flips Crosses</label>
-								<input type="range" name="flips_crosses" id="flips_crosses" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="flips_crosses_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="flips_crosses_White" style="display:block">
+									<input type="button" class="evidenceButton" id="flips_crosses_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="fuse_box">Fuse Box</label>
-								<input type="range" name="fuse_box" id="fuse_box" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="fuse_box_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="fuse_box_White" style="display:block">
+									<input type="button" class="evidenceButton" id="fuse_box_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="writes_walls">Writes on Walls</label>
-								<input type="range" name="writes_walls" id="writes_walls" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="writes_walls_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="writes_walls_White" style="display:block">
+									<input type="button" class="evidenceButton" id="writes_walls_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="flashlight_flickers">Flashlight Flickers</label>
-								<input type="range" name="flashlight_flickers" id="flashlight_flickers" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="flashlight_flickers_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="flashlight_flickers_White" style="display:block">
+									<input type="button" class="evidenceButton" id="flashlight_flickers_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="television">Cuts On Television</label>
-								<input type="range" name="television" id="television" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="television_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="television_White" style="display:block">
+									<input type="button" class="evidenceButton" id="television_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="knock">Knocks or Operate Phones</label>
-								<input type="range" name="knock" id="knock" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="knock_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="knock_White" style="display:block">
+									<input type="button" class="evidenceButton" id="knock_Red" style="display:none">
 							</div>
 						</li>
 						<li>
 							<div class="evidenceToggle">
 								<label for="contact">Contact</label>
-								<input type="range" name="contact" id="contact" min="0" max="2" />
+								<div class="btn-group">
+									<input type="button" class="evidenceButton" id="contact_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="contact_White" style="display:block">
+									<input type="button" class="evidenceButton" id="contact_Red" style="display:none">
 							</div>
 						</li>
 					</ul>
@@ -483,12 +588,14 @@
 		</div>
 		<h2>Possible Ghosts:</h2>
 		<div id="ghosts"><!-- ghosts -->
-			<div class="ghost"><!-- Ghost Spirit -->
+			<div class="ghost" id="spirit"><!-- Ghost Spirit -->
 				<div>
 					<h3>Spirit</h3>
 					<div class="description">
 						<!-- Ghost Description -->
-						<p>A Spirit is the soul of a deceased person that remains on earth, often tied to a specific place due to unfinished business. Its manifestation can appear lifelike due to its power.</p>
+						<p>A Spirit is the soul of a deceased person that remains on earth, 
+							often tied to a specific place due to unfinished business. Its 
+							manifestation can appear lifelike due to its power.</p>
 						<!-- Ghost Image -->
 						<img src="Ghost_ghost.png" alt="Ghost_ghost" style="width: 120px;height: 120px;">
 						<h4>To Destroy</h4>
@@ -664,7 +771,7 @@
 						<li data-evidence="emf_5">EMF 5</li>
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="freezing">Minus Degrees</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
@@ -700,7 +807,7 @@
 						<li data-evidence="motion">Motion Detector</li>
 						<li data-evidence="ghost_box">Ghost Box</li>
 						<li data-evidence="ghost_orbs">Orbs</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
@@ -769,7 +876,7 @@
 						<li data-evidence="freezing">Minus Degrees</li>
 						<li data-evidence="ghost_box">Ghost Box</li>
 						<li data-evidence="ghost_orbs">Orbs</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ouija_board">Oui<em>j</em>a Board</li>						
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
@@ -804,7 +911,7 @@
 					<ul class="evidence">
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="candle">Candle</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagrams_seen">Will avoid pentagrams if seen</li>
@@ -926,7 +1033,7 @@
 					<ul class="evidence">
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="ghost_orbs">Orbs</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ghost_doll">Ghost Doll</li>
 						<li data-evidence="statue_of_mary">Statue Of Mary</li>
 						<h4>Defense</h4>
@@ -961,7 +1068,7 @@
 					<ul class="evidence">
 						<li data-evidence="motion">Motion Detector</li>
 						<li data-evidence="ghost_box">Ghost Box</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="crystal_ball">Crystal Ball</li>
 						<h4>Defense</h4>
 						<li data-evidence="salt">Can walk on salt</li>
@@ -1023,7 +1130,7 @@
 					</div>
 					<ul class="evidence">
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
 						<li data-evidence="shotgun_evidence">Can be scared with shotgun</li>
@@ -1100,7 +1207,7 @@
 					<ul class="evidence">
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ghost_doll">Ghost Doll</li>
 						<li data-evidence="statue_of_mary">Statue Of Mary</li>
 						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
@@ -1136,7 +1243,7 @@
 					<ul class="evidence">
 						<li data-evidence="motion">Motion Detector</li>
 						<li data-evidence="ghost_box">Ghost Box</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="candle">Candle</li>
 						<h4>Defense</h4>
 						<p><font color="greenyellow">Can't walk on Salt</font></p>
@@ -1212,7 +1319,7 @@
 					<ul class="evidence">
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ghost_doll">Ghost Doll</li>
 						<li data-evidence="candle">Candle</li>
 						<h4>Defense</h4>
@@ -1253,7 +1360,7 @@
 					<ul class="evidence">
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="candle">Candle</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
@@ -1292,7 +1399,7 @@
 					</div>
 					<ul class="evidence">
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="crystal_ball">Crystal Ball</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
@@ -1328,7 +1435,7 @@
 					</div>
 					<ul class="evidence">
 						<li data-evidence="motion">Motion Detector</li>
-						<li data-evidence="fingers">Fingerprints</li>
+						<li data-evidence="handprint">Fingerprints</li>
 						<li data-evidence="ghost_orbs">Orbs</li>
 						<h4>Defense</h4>
 						<li data-evidence="pentagram">Can be captured in pentagram</li>
@@ -1345,13 +1452,10 @@
 		</div><!-- ghosts -->
 		<footer><p>web app made by IGC Monster.</p></footer>
 	</div><!-- wrapper -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="Main.js"></script>
-	<script src="https://unpkg.com/animate-css-grid@1.4.3/dist/Main.js"></script>
-	<script>
-	  const ghost = document.querySelector("#ghosts");
-	  const checkbox = document.querySelector("#evidence ul");
-	</script>
 	<!-- Fixed Color and removed Undo Button 10/22/2023-->
 	<!-- Removed wrap script and put background on red worlds with a class shadow 10/22/2023-->
+	<!-- Complete redo of the App 10/23/2023-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- If you're using jQuery -->
+    <script src="Main.js"></script>
+	<script src="EvidenceButtons.js"></script>
 </body>
