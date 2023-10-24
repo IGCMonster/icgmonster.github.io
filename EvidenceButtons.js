@@ -2,11 +2,15 @@
 $(document).ready(function() {
     // Initialize button groups and states
     const buttonGroups = {
+		// Defense checkboxes
 		'salt': ['Green', 'Red', 'White'],
 		'pentagram': ['Green', 'Red', 'White'],
 		'pentagrams_seen': ['Green', 'Red', 'White'],
 		'shotgun_evidence': ['Green', 'Red', 'White'],
 		'holy_water': ['Green', 'Red', 'White'],
+		'knife_evidence': ['Green', 'Red', 'White'],
+		'katana_evidence': ['Green', 'Red', 'White'],
+		// Evidence checkboxes
 		'emf': ['Green', 'Red', 'White'],
 		'emf_5': ['Green', 'Red', 'White'],
 		'cold_spots': ['Green', 'Red', 'White'],
@@ -44,6 +48,7 @@ $(document).ready(function() {
 	
 	//Switch images on button click
 	const evidenceImages = {
+		// Defense checkboxe
 		'salt': {
 			'Green': 'salt_Green.png',
 			'White': 'salt_White.png',
@@ -69,6 +74,17 @@ $(document).ready(function() {
 			'White': 'holy_water_White.png',
 			'Red': 'holy_water_Red.png'
 		},
+		'katana_evidence': {
+			'Green': 'katana_evidence_Green.png',
+			'White': 'katana_evidence_White.png',
+			'Red': 'katana_evidence_Red.png'
+		},
+		'knife_evidence': {
+			'Green': 'knife_evidence_Green.png',
+			'White': 'knife_evidence_White.png',
+			'Red': 'knife_evidence_Red.png'
+		},
+		// Evidence checkboxes		
 		'emf': {
 			'Green': 'emf_Green.png',
 			'White': 'emf_White.png',
