@@ -4,7 +4,7 @@ $(document).ready(function() {
     const buttonGroups = {
 		'salt': ['Green', 'Red', 'White'],
 		'pentagram': ['Green', 'Red', 'White'],
-        'pentagrams_seen': ['Green', 'Red', 'White'],
+		'pentagrams_seen': ['Green', 'Red', 'White'],
 		'shotgun_evidence': ['Green', 'Red', 'White'],
 		'holy_water': ['Green', 'Red', 'White'],
 		'emf': ['Green', 'Red', 'White'],
@@ -32,7 +32,14 @@ $(document).ready(function() {
 		'television': ['Green', 'Red', 'White'],
 		'knock': ['Green', 'Red', 'White'],
 		'contact': ['Green', 'Red', 'White'],
-		// Add more buttons here
+		// Visible checkboxes
+		'visible': ['Green', 'Red', 'White'],
+		// Exorcisms checkboxes
+		'burning_exorcism': ['Green', 'Red', 'White'],
+		'book_exorcism': ['Green', 'Red', 'White'],
+		'knife_exorcism': ['Green', 'Red', 'White'],
+		'katana_exorcism': ['Green', 'Red', 'White'],
+		'shotgun_exorcism': ['Green', 'Red', 'White'],
     };
 	
 	//Switch images on button click
@@ -183,6 +190,38 @@ $(document).ready(function() {
 			'White': 'contact_White.png',
 			'Red': 'contact_Red.png'
 		},
+		// Visible checkboxes
+		'visible': {
+			'Green': 'visible_Green.png',
+			'White': 'visible_White.png',
+			'Red': 'visible_Red.png'
+		},
+		// Exorcisms checkboxes
+		'burning_exorcism': {
+			'Green': 'burning_exorcism_Green.png',
+			'White': 'burning_exorcism_White.png',
+			'Red': 'burning_exorcism_Red.png'
+		},
+		'book_exorcism': {
+			'Green': 'book_exorcism_Green.png',
+			'White': 'book_exorcism_White.png',
+			'Red': 'book_exorcism_Red.png'
+		},
+		'knife_exorcism': {
+			'Green': 'knife_exorcism_Green.png',
+			'White': 'knife_exorcism_White.png',
+			'Red': 'knife_exorcism_Red.png'
+		},
+		'katana_exorcism': {
+			'Green': 'katana_exorcism_Green.png',
+			'White': 'katana_exorcism_White.png',
+			'Red': 'katana_exorcism_Red.png'
+		},	
+		'shotgun_exorcism': {
+			'Green': 'shotgun_exorcism_Green.png',
+			'White': 'shotgun_exorcism_White.png',
+			'Red': 'shotgun_exorcism_Red.png'
+		},	
 	};
 	
 	//Initialize Images call
@@ -284,4 +323,4 @@ $(document).ready(function() {
 		});
 	}); 	
 });
-// This is the new Java for the new Buttons 10/23/2023
+
