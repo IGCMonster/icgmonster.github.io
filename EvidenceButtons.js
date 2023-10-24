@@ -234,9 +234,9 @@ $(document).ready(function() {
 			'Red': 'katana_exorcism_Red.png'
 		},	
 		'shotgun_exorcism': {
-			'Green': 'shotgun_exorcism_Green.png',
-			'White': 'shotgun_exorcism_White.png',
-			'Red': 'shotgun_exorcism_Red.png'
+			'Green': 'shotgun_evidence_Green.png',
+			'White': 'shotgun_evidence_White.png',
+			'Red': 'shotgun_evidence_Red.png'
 		},	
 	};
 	
