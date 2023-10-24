@@ -118,32 +118,6 @@ function fadein(div) {
     // Add class for fade-in animation
     div.addClass("fadein");
 }
-// Function to reset UI elements and classes to their default states
-function reset() {
-    // Remove various classes from elements with class "ghost"
-    $('.ghost').removeClass('maybe disabled yes excluded fadein fadeout');
-    
-    // Remove classes "yes" and "no" from elements with class "evidence" inside <li> elements
-    $(".evidence li").removeClass('yes no');
-    
-    // Remove class "disabled" from elements with class "evidence" inside <li> elements
-    $("#evidence li").removeClass("disabled");
-    
-    // Trigger a form reset to clear input fields
-    $('form').trigger("reset");
-    
-    // Reset role selection checkboxes
-    $("#role_list input").prop("checked", false).trigger("change");
-    
-    // Reset evidence input values to 1
-    $('#evidence input').val(1);
-    
-    // Remove classes "yes" and "no" from inputs within elements with class "evidenceToggle"
-    $(".evidenceToggle input").removeClass('yes no');
-    
-    // Display a warning message with specific text, background color, and text color
-    warning("Please select up to 3 pieces of evidence to narrow down the spookster.", "#2f2f2f", "#fff");
-}
 // Function to filter the ghost
 function updateGhosts() {
     // Find IDs of evidence with value 0 (not selected)
@@ -238,11 +212,108 @@ function updateGhosts() {
         warning("No combination of evidence works!", "#c61c1ce0", "#fff");
     }
 }
-$(document).ready(function() {
+$(document).ready(function() {   
+    // Initialize button groups and states
+    const buttonGroups = {
+        'salt': ['green', 'red', 'white'],
+        'fingers': ['Green', 'Red', 'White']
+		// Add more buttons here
+    };
+	
+	//Switch images on button click
+	const evidenceImages = {
+		'salt': {
+			'green': 'salt_yes.png',
+			'white': 'salt_white.png',
+			'red': 'salt_no.png'
+		},
+		'fingers': {
+			'Green': 'pikel.jpg',
+			'White': 'wtf.jpg',
+			'Red': 'wtfTom.png'
+		}
+		// Add more Images here
+	};
+ 	
+	//Initialize Images call
+	initializeButtons();
 
-    // Attach the "reset" function to the click event of the element with the ID "reset"
-    $("#reset").click(reset);
-});
+    const evidenceState = {};
+
+    // Function to toggle buttons
+	function toggleButtons(group, currentState) {
+		const states = buttonGroups[group];
+		const currentIndex = states.indexOf(currentState);
+		const nextIndex = (currentIndex + 1) % states.length;
+		const nextButton = `${group}_${states[nextIndex]}`;
+		const nextImage = evidenceImages[group][states[nextIndex]];
+
+		$(`#${group}_${currentState}`).hide();
+		$(`#${nextButton}`).css('background', `url(${nextImage}) no-repeat`).show();
+		evidenceState[evidenceMapping[group]] = states[nextIndex];
+		updateGhostList();
+	}
+
+	// Function to update the ghost list based on evidence
+	function updateGhostList() {
+		$('.ghost').each(function() {
+			const $ghost = $(this);
+			let shouldShow = true;
+			let allGreenMet = true;
+
+			// Reset all evidence background colors to default
+			$ghost.find('li[data-evidence]').css('background-color', '');
+
+			Object.keys(evidenceState).forEach(evidenceType => {
+				const state = evidenceState[evidenceType];
+				const $evidence = $ghost.find(`li[data-evidence="${evidenceType}"]`);
+				const hasEvidence = $evidence.length > 0;
+
+				if (state === 'Green') {
+					if (!hasEvidence) {
+						allGreenMet = false;
+						return false; // Break out of the loop
+					} else {
+						$evidence.css('background-color', 'green');
+					}
+				} else if (state === 'Red' && hasEvidence) {
+					shouldShow = false;
+				}
+			});
+
+			if (shouldShow && allGreenMet) {
+				$ghost.show();
+			} else {
+				$ghost.hide();
+			}
+		});
+	}
+
+    // Attach click event listeners
+    Object.keys(buttonGroups).forEach(group => {
+        buttonGroups[group].forEach(state => {
+            $(`#${group}_${state}`).click(function() {
+                toggleButtons(group, state);
+            });
+        });
+    });
+	
+	//Initialize Images function
+	function initializeButtons() {
+		Object.keys(buttonGroups).forEach(group => {
+			const states = buttonGroups[group];
+			states.forEach(state => {
+				const $button = $(`#${group}_${state}`);
+				if ($button.is(':visible')) {
+					const initialImage = evidenceImages[group][state];
+					$button.css('background', `url(${initialImage}) no-repeat`);
+				}
+			});
+		});
+	}
+
+});  
+
 // Function to handle toggling of instructions
 $("#toggle_instructions").click(function() {
     // Check the current value of the "inst" cookie
@@ -440,3 +511,5 @@ $("#evidence_list input").change(function() {
     // Update the ghost display based on the changed evidence
     updateGhosts();
 });
+
+// chandge the way ghost are toggles with buttons
