@@ -506,5 +506,11 @@ a:hover {
 	width: auto;
 	text-align: center;
 }
-/*fixed Role imges centering them 10/27/2023*/
+
+#ghosts img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*fixed Role and ghost imges centering them 10/27/2023*/
 /*Also Added the fix for the buttion at the top of the page 10/27/2023*/
