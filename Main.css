@@ -224,6 +224,7 @@ input[type="checkbox"]:checked + label {
 	list-style: none;
 	white-space: nowrap;
 	width: auto;
+	text-align: center;
 }
 
 #evidence_list input[type="checkbox"].no + label {
@@ -303,6 +304,7 @@ input[type="checkbox"]:checked + label {
 	font-size: 22px;
 	transition: color .125s ease;
 	font-weight: bolder;
+	text-align: center;
 }
 
 .ghost h3, .ghost h4 {
@@ -459,3 +461,42 @@ a:hover {
     margin-right:auto;
 }
 /*added a new verson for buttons 10/23/2023*/
+#role_list img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle_buttons {
+    display: flex;
+    margin: 0 0 35px 0;
+}
+
+.toggle_buttons a {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    border: none;
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    margin: 0 10px 0 0;
+    font-size: 18px;
+    transition: all .125s ease;
+}
+
+.toggle_buttons a.active {
+    color: #fff;
+    background: #1a971a;
+}
+
+.toggle_buttons a#reset.active  {
+    background: #fff;
+    color: #000;
+}
+/*fixed Role imges centering them 10/27/2023*/
+/*Also Added the fix for the button at the top of the page 10/27/2023*/
