@@ -490,6 +490,25 @@ a:hover {
     transition: all .125s ease;
 }
 
+.toggle_buttons button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    outline: none;
+    border: none;
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    margin: 0 10px 0 0;
+    font-size: 18px;
+	font-weight: bold;
+	font-family: 'Almendra SC';
+    transition: all .125s ease;
+}
+
 .toggle_buttons a.active {
     color: #fff;
     background: #1a971a;
