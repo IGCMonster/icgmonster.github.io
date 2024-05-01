@@ -36,7 +36,7 @@ $(document).ready(function() {
 		'television': ['Green', 'Red', 'White'],
 		'knock': ['Green', 'Red', 'White'],
 		'contact': ['Green', 'Red', 'White'],
-		'throw': ['Green', 'Red', 'White'],
+		'throw_objects': ['Green', 'Red', 'White'],
 		// Visible checkboxes
 		'visible': ['Green', 'Red', 'White'],
 		// Exorcisms checkboxes
@@ -207,7 +207,7 @@ $(document).ready(function() {
 			'White': 'contact_White.png',
 			'Red': 'contact_Red.png'
 		},
-		'throw': {
+		'throw_objects': {
 			'Green': 'contact_Green.png',
 			'White': 'contact_White.png',
 			'Red': 'contact_Red.png'
@@ -345,4 +345,4 @@ $(document).ready(function() {
 		});
 	}); 	
 });
-
+//added the throw Objects Button to the App 4/30/2024
