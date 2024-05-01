@@ -36,6 +36,7 @@ $(document).ready(function() {
 		'television': ['Green', 'Red', 'White'],
 		'knock': ['Green', 'Red', 'White'],
 		'contact': ['Green', 'Red', 'White'],
+		'throw': ['Green', 'Red', 'White'],
 		// Visible checkboxes
 		'visible': ['Green', 'Red', 'White'],
 		// Exorcisms checkboxes
@@ -202,6 +203,11 @@ $(document).ready(function() {
 			'Red': 'knock_Red.png'
 		},
 		'contact': {
+			'Green': 'contact_Green.png',
+			'White': 'contact_White.png',
+			'Red': 'contact_Red.png'
+		},
+		'throw': {
 			'Green': 'contact_Green.png',
 			'White': 'contact_White.png',
 			'Red': 'contact_Red.png'
