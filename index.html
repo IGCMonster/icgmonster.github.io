@@ -15,7 +15,7 @@
 		<div id="desc">
 			<h1>Meta Physical</h1>
 			<p>A web app for tracking evidence during contracts in the game Meta Physical. This is a supplemental tool for the journal on hunts.</p>
-			<p>Game Version-B 1.3.4</p>
+			<p>Game Version 1.4.4.2</p>
 		</div>
 		<!-- toggle_buttons -->
 		<div class="toggle_buttons">
@@ -531,9 +531,9 @@
 							<div class="evidenceToggle">
 								<label for="throw_objects">Throw Objects</label>
 								<div class="btn-group">
-									<input type="button" class="evidenceButton" id="contact_Green" style="display:none">
-									<input type="button" class="evidenceButton" id="contact_White" style="display:block">
-									<input type="button" class="evidenceButton" id="contact_Red" style="display:none">
+									<input type="button" class="evidenceButton" id="throw_objects_Green" style="display:none">
+									<input type="button" class="evidenceButton" id="throw_objects_White" style="display:block">
+									<input type="button" class="evidenceButton" id="throw_objects_Red" style="display:none">
 							</div>
 						</li>
 					</ul>
@@ -1498,7 +1498,7 @@
 						<li data-evidence="cold_spots">Cold Spots</li>
 						<li data-evidence="h2s_meter">H<em>2</em>S Meter</li>
 						<h4>Defense</h4>
-						<p><font color="greenyellow">Can't walk on Salt</font></p>
+						<li data-evidence="salt">Can walk on salt</li>
 						<h4>Behaviors</h4>
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<li data-evidence="flips_crosses">Flip Crosses</li>
@@ -1760,11 +1760,14 @@
 						<p><font color="greenyellow">Can't walk on Salt</font></p>
 						<h4>Behaviors</h4>
 						<li data-evidence="light_switches">Brakes Lights</li>
+						<li data-evidence="screams">Screams</li>
 						<li data-evidence="flashlight_flickers">Flashlight Flickers</li>
 						<li data-evidence="fuse_box">Fuse Box</li>
-						<li data-evidence="writes_walls">Writes on Walls</li>
+						<li data-evidence="television">Cuts On Television</li>
+						<li data-evidence="knock">Knocks or Operate Telephones</li>
 						<h4>Visible</h4>
-						<li data-evidence="visible">Can Be Seen</li>
+						<li data-evidence="not_visible">Can Not Be Seen</li>
+						<li data-evidence="book_exorcism"></li>
 					</ul>
 				</div>
 			</div><!-- ghost Grim Reaper Seasonal -->
@@ -1782,6 +1785,7 @@
 	<!-- Added Developers Behaviors to the index.html and EvidenceButtons.js for the Full Game Release Verson 1.3.4 4/30/2024-->
 	<!-- Added Anubis to the App for the Full Game Release Verson 1.3.4 8/5/2024-->
 	<!-- Added Grim Reaper and added cant walk on salt to all the ghost to the App for the Full Game Release Verson 1.3.4 10/29/2024-->
+	<!-- Added Grim Reapper and fixed some of the Info for it also added Throw Items to folder to the App for the Full Game Release Verson 1.4.4.2 10/31/2024-->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- If you're using jQuery -->
     <script src="Main.js"></script>
 	<script src="EvidenceButtons.js"></script>
