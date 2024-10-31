@@ -208,9 +208,9 @@ $(document).ready(function() {
 			'Red': 'contact_Red.png'
 		},
 		'throw_objects': {
-			'Green': 'contact_Green.png',
-			'White': 'contact_White.png',
-			'Red': 'contact_Red.png'
+			'Green': 'throw_objects_Green.png',
+			'White': 'throw_objects_White.png',
+			'Red': 'throw_objects_Red.png'
 		},
 		// Visible checkboxes
 		'visible': {
